@@ -22,19 +22,42 @@
   <div id="tabla"  class="table-responsive">
 
 
+<div id="root">
+<div class="container"></div>
+</div>
+
 
  <p>Id_Sucursal: <span id="IdSucursal"></span></p>
   <p>Sucursal <span id="Sucursal"></span></p>
    
 
  <script>
-        $(document).ready(function(){
-            $.get('http://localhost:3333/api/v1/suc',function(data){
-                var dJson = JSON.parse(data);
-                $('#IdSucursal').text(dJson.IdSucursal);
-                $('#Sucursal').text(dJson.Sucursal);
-            });
-        });
+
+  const app = document.getElementById('root')
+  const container = document.createElement('div')
+  container.setAttribute('class', 'container')
+
+  app.appendChild(container)
+
+  var request = new XMLHttpRequest()
+  request.open('GET', 'http://localhost:3333/api/v1/suc', true)
+  request.onload = function() {
+       var data = JSON.parse(this.response)
+        if (request.status >= 200 && request.status < 400) {
+                console.log("ok"+response);
+            
+        }
+        else{
+                console.log("bad"+response);
+
+        }
+
+  }
+
+  request.send()
+
+      
+
 </script>
 
 
