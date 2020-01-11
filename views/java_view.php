@@ -47,12 +47,16 @@ app.appendChild(container)
                   const h1 = document.createElement('td');
                   h1.textContent = movie.IdSucursal;
 
+                  const item2 = document.createElement('td');
+                  item2.textContent ='-';
+
                 const p = document.createElement('td')
                 p.textContent = movie.Sucursal;
 
 
                 container.appendChild(card);
                 card.appendChild(h1);
+                card.appendChild(item2);
                 card.appendChild(p);
 
                    
